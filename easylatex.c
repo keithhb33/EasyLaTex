@@ -407,21 +407,66 @@ static void emit_default_preamble_once(void){
   if(g_doc_open) return;
 
   fputs("\\documentclass{article}\n", stdout);
+
   fputs("\\usepackage[T1]{fontenc}\n", stdout);
   fputs("\\usepackage[utf8]{inputenc}\n", stdout);
+
+  fputs("\\IfFileExists{lmodern.sty}{\\usepackage{lmodern}}{}\n", stdout);
+  fputs("\\IfFileExists{microtype.sty}{\\usepackage{microtype}}{}\n", stdout);
+  fputs("\\IfFileExists{geometry.sty}{\\usepackage[margin=1in]{geometry}}{}\n", stdout);
+  fputs("\\IfFileExists{parskip.sty}{\\usepackage{parskip}}{}\n", stdout);
+  fputs("\\IfFileExists{setspace.sty}{\\usepackage{setspace}}{}\n", stdout);
 
   fputs("\\usepackage{amsmath}\n", stdout);
   fputs("\\usepackage{amssymb}\n", stdout);
   fputs("\\usepackage{amsthm}\n", stdout);
+  fputs("\\IfFileExists{mathtools.sty}{\\usepackage{mathtools}}{}\n", stdout);
+  fputs("\\IfFileExists{amsfonts.sty}{\\usepackage{amsfonts}}{}\n", stdout);
+  fputs("\\IfFileExists{mathrsfs.sty}{\\usepackage{mathrsfs}}{}\n", stdout);
+  fputs("\\IfFileExists{bm.sty}{\\usepackage{bm}}{}\n", stdout);
+  fputs("\\IfFileExists{cancel.sty}{\\usepackage{cancel}}{}\n", stdout);
+  fputs("\\IfFileExists{xfrac.sty}{\\usepackage{xfrac}}{}\n", stdout);
+  fputs("\\IfFileExists{siunitx.sty}{\\usepackage{siunitx}}{}\n", stdout);
+  fputs("\\IfFileExists{physics.sty}{\\usepackage{physics}}{}\n", stdout);
 
   fputs("\\usepackage{graphicx}\n", stdout);
-  fputs("\\usepackage{hyperref}\n", stdout);
+  fputs("\\IfFileExists{float.sty}{\\usepackage{float}}{}\n", stdout);
+  fputs("\\IfFileExists{caption.sty}{\\usepackage{caption}}{}\n", stdout);
+  fputs("\\IfFileExists{subcaption.sty}{\\usepackage{subcaption}}{}\n", stdout);
+  fputs("\\IfFileExists{wrapfig.sty}{\\usepackage{wrapfig}}{}\n", stdout);
+  fputs("\\IfFileExists{adjustbox.sty}{\\usepackage{adjustbox}}{}\n", stdout);
+  fputs("\\IfFileExists{pdfpages.sty}{\\usepackage{pdfpages}}{}\n", stdout);
+
+  fputs("\\usepackage{xcolor}\n", stdout);
+  fputs("\\IfFileExists{colortbl.sty}{\\usepackage{colortbl}}{}\n", stdout);
 
   fputs("\\usepackage{booktabs}\n", stdout);
   fputs("\\usepackage{tabularx}\n", stdout);
   fputs("\\usepackage{longtable}\n", stdout);
-  fputs("\\usepackage{xcolor}\n", stdout);
+  fputs("\\IfFileExists{array.sty}{\\usepackage{array}}{}\n", stdout);
+  fputs("\\IfFileExists{multirow.sty}{\\usepackage{multirow}}{}\n", stdout);
+  fputs("\\IfFileExists{makecell.sty}{\\usepackage{makecell}}{}\n", stdout);
+  fputs("\\IfFileExists{diagbox.sty}{\\usepackage{diagbox}}{}\n", stdout);
+
+  fputs("\\IfFileExists{enumitem.sty}{\\usepackage{enumitem}}{}\n", stdout);
+  fputs("\\IfFileExists{csquotes.sty}{\\usepackage{csquotes}}{}\n", stdout);
+  fputs("\\IfFileExists{babel.sty}{\\usepackage[english]{babel}}{}\n", stdout);
+
   fputs("\\usepackage{listings}\n", stdout);
+
+  fputs("\\IfFileExists{tikz.sty}{\\usepackage{tikz}}{}\n", stdout);
+  fputs("\\IfFileExists{tikz-cd.sty}{\\usepackage{tikz-cd}}{}\n", stdout);
+  fputs("\\IfFileExists{pgfplots.sty}{\\usepackage{pgfplots}\\pgfplotsset{compat=newest}}{}\n", stdout);
+
+  fputs("\\usepackage{hyperref}\n", stdout);
+  fputs("\\IfFileExists{xurl.sty}{\\usepackage{xurl}}{}\n", stdout);
+  fputs("\\IfFileExists{cleveref.sty}{\\usepackage[nameinlink,noabbrev]{cleveref}}{}\n", stdout);
+
+  fputs("\\IfFileExists{fancyhdr.sty}{\\usepackage{fancyhdr}}{}\n", stdout);
+
+  fputs("\\IfFileExists{algorithm2e.sty}{\\usepackage[ruled,vlined]{algorithm2e}}{}\n", stdout);
+  fputs("\\IfFileExists{algorithm.sty}{\\usepackage{algorithm}}{}\n", stdout);
+  fputs("\\IfFileExists{algpseudocode.sty}{\\usepackage{algpseudocode}}{}\n", stdout);
 
   fputs("\\theoremstyle{plain}\n", stdout);
   fputs("\\newtheorem{theorem}{Theorem}[section]\n", stdout);
