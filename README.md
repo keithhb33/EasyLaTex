@@ -414,7 +414,3 @@ It’s trying to make writing LaTeX feel less like writing markup.
 - Always end up with normal `.tex` you can share, debug, and compile anywhere.
 
 ---
-
-## License
-
-Pick one (MIT / Apache-2.0 / GPL / etc.) and add `LICENSE` to the repo.
