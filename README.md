@@ -1,4 +1,4 @@
-# EasyLaTex — Write LaTeX Without the Noise (Indent-Based → LaTeX)
+# EasyLaTex — Write LaTeX Without the Noise
 
 EasyLaTex is a tiny compiler (written in C) that turns an indentation-based language (`.itex`) into standard `.tex` that compiles with `pdflatex`.
 
