@@ -464,9 +464,12 @@ static void emit_default_preamble_once(void){
 
   fputs("\\IfFileExists{fancyhdr.sty}{\\usepackage{fancyhdr}}{}\n", stdout);
 
-  fputs("\\IfFileExists{algorithm2e.sty}{\\usepackage[ruled,vlined]{algorithm2e}}{}\n", stdout);
-  fputs("\\IfFileExists{algorithm.sty}{\\usepackage{algorithm}}{}\n", stdout);
-  fputs("\\IfFileExists{algpseudocode.sty}{\\usepackage{algpseudocode}}{}\n", stdout);
+  /* Algorithms: prefer algorithm2e if available, else algorithm+algpseudocode.
+     (No \\newif, and no digits in control sequence names.) */
+  fputs("\\IfFileExists{algorithm2e.sty}{\\usepackage[ruled,vlined]{algorithm2e}}{%\n", stdout);
+  fputs("  \\IfFileExists{algorithm.sty}{\\usepackage{algorithm}}{}%\n", stdout);
+  fputs("  \\IfFileExists{algpseudocode.sty}{\\usepackage{algpseudocode}}{}%\n", stdout);
+  fputs("}\n", stdout);
 
   fputs("\\theoremstyle{plain}\n", stdout);
   fputs("\\newtheorem{theorem}{Theorem}[section]\n", stdout);
